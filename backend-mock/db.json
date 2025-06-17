@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "X100 Wireless Headphones",
+      "unitCost": 59.99,
+      "totalSales": 1200,
+      "description": "Wireless headphones with noise cancellation"
+    },
+    {
+      "id": 2,
+      "name": "Pro Gaming Mouse",
+      "unitCost": 35.5,
+      "totalSales": 850,
+      "description": "RGB gaming mouse with 6 programmable buttons"
+    },
+    {
+      "id": 3,
+      "name": "K200 Mechanical Keyboard",
+      "unitCost": 79.99,
+      "totalSales": 320,
+      "description": "Mechanical keyboard with backlight for gaming"
+    },
+    {
+      "id": 4,
+      "name": "24'' Full HD Monitor",
+      "unitCost": 199.99,
+      "totalSales": 430,
+      "description": "IPS monitor with 1920x1080 resolution"
+    },
+    {
+      "id": 5,
+      "name": "HD 1080p Webcam",
+      "unitCost": 49.9,
+      "totalSales": 1050,
+      "description": "Webcam with built-in microphone and 1080p resolution"
+    },
+    {
+      "id": 6,
+      "name": "Pro Ergonomic Chair",
+      "unitCost": 299.99,
+      "totalSales": 190,
+      "description": "Chair with adjustable lumbar support and 3D armrests"
+    },
+    {
+      "id": 7,
+      "name": "ZM7 Condenser Microphone",
+      "unitCost": 89.99,
+      "totalSales": 270,
+      "description": "Professional microphone for recording and streaming"
+    },
+    {
+      "id": 8,
+      "name": "7-in-1 USB-C Hub",
+      "unitCost": 39.5,
+      "totalSales": 610,
+      "description": "Hub with HDMI, USB 3.0, card reader and fast charging"
+    },
+    {
+      "id": 9,
+      "name": "S640 Drawing Tablet",
+      "unitCost": 65.0,
+      "totalSales": 150,
+      "description": "Compact drawing tablet for digital art and design"
+    },
+    {
+      "id": 10,
+      "name": "LED Desk Lamp",
+      "unitCost": 29.99,
+      "totalSales": 990,
+      "description": "Dimmable LED desk lamp with touch controls"
+    }
+  ]
+}
