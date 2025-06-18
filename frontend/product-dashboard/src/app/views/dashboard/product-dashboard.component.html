@@ -1,0 +1,11 @@
+<div class="flex flex-col lg:flex-row gap-6 p-6">
+  <div class="lg:w-1/2 w-full">
+    <app-product-list (productSelected)="onProductSelected($event)" />
+  </div>
+
+  @if (selectedProductId !== null) {
+    <div class="lg:w-1/2 w-full">
+      <app-product-detail [productId]="selectedProductId" />
+    </div>
+  }
+</div>

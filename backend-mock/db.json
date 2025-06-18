@@ -59,7 +59,7 @@
     {
       "id": 9,
       "name": "S640 Drawing Tablet",
-      "unitCost": 65.0,
+      "unitCost": 65,
       "totalSales": 150,
       "description": "Compact drawing tablet for digital art and design"
     },
@@ -69,6 +69,30 @@
       "unitCost": 29.99,
       "totalSales": 990,
       "description": "Dimmable LED desk lamp with touch controls"
+    },
+    {
+      "id": "a23e",
+      "name": "KOMPLETE AUDIO 1",
+      "unitCost": 99,
+      "totalSales": 1000,
+      "description": "Audio interface for beginners",
+      "image": ""
+    },
+    {
+      "id": "994a",
+      "name": "KOMPLETE AUDIO 2",
+      "unitCost": 139,
+      "totalSales": 1000,
+      "description": "Audio interface for beginners",
+      "image": ""
+    },
+    {
+      "id": "4e03",
+      "name": "KOMPLETE AUDIO 3",
+      "unitCost": 150,
+      "totalSales": 1000,
+      "description": "Audio interface for beginners",
+      "image": ""
     }
   ]
 }

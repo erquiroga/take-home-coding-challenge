@@ -1,0 +1,46 @@
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  (input)="applyFilters()"
+  placeholder="Search by name..."
+  class="border border-gray-300 px-4 py-2 rounded w-full mb-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
+
+<div class="rounded border border-gray-300 shadow-sm overflow-hidden">
+  <table class="min-w-full table-auto text-sm text-left text-gray-700 bg-white">
+    <thead class="bg-gray-100 text-gray-800 uppercase text-xs">
+      <tr>
+        <th class="px-4 py-3 border-b border-gray-300 cursor-pointer" (click)="setSort('id')">
+          ID
+          <span *ngIf="sortColumn === 'id'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th class="px-4 py-3 border-b border-gray-300 cursor-pointer" (click)="setSort('name')">
+          Name
+          <span *ngIf="sortColumn === 'name'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th class="px-4 py-3 border-b border-gray-300 cursor-pointer" (click)="setSort('unitCost')">
+          Unit Cost
+          <span *ngIf="sortColumn === 'unitCost'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th class="px-4 py-3 border-b border-gray-300 cursor-pointer" (click)="setSort('totalSales')">
+          Total Sales
+          <span *ngIf="sortColumn === 'totalSales'">{{ sortDirection === 'asc' ? '▲' : '▼' }}</span>
+        </th>
+        <th class="px-4 py-3 border-b border-gray-300">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let product of filteredProducts; trackBy: trackById"
+        (click)="logProduct(product)"
+        class="hover:bg-gray-50 transition-colors cursor-pointer"
+      >
+        <td class="px-4 py-3 border-b border-gray-200">{{ product.id }}</td>
+        <td class="px-4 py-3 border-b border-gray-200">{{ product.name }}</td>
+        <td class="px-4 py-3 border-b border-gray-200">{{ product.unitCost | currency }}</td>
+        <td class="px-4 py-3 border-b border-gray-200">{{ product.totalSales }}</td>
+        <td class="px-4 py-3 border-b border-gray-200">{{ product.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
