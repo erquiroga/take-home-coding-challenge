@@ -59,7 +59,7 @@
     {
       "id": 9,
       "name": "S640 Drawing Tablet",
-      "unitCost": 65.0,
+      "unitCost": 65,
       "totalSales": 150,
       "description": "Compact drawing tablet for digital art and design"
     },
@@ -69,6 +69,14 @@
       "unitCost": 29.99,
       "totalSales": 990,
       "description": "Dimmable LED desk lamp with touch controls"
+    },
+    {
+      "id": 11,
+      "name": "Nvidia RTX 5080",
+      "unitCost": 2500,
+      "totalSales": 500,
+      "description": "Dedicated GPU for gaming and AI",
+      "image": ""
     }
   ]
 }

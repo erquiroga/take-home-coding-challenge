@@ -1,0 +1,11 @@
+@if (product) {
+  <div class="p-6 bg-white border border-gray-300 shadow-sm overflow-hidden shadow rounded">
+    <h2 class="text-2xl font-bold mb-4">{{ product.name }}</h2>
+    <p><strong>ID:</strong> {{ product.id }}</p>
+    <p><strong>Unit Cost:</strong> {{ product.unitCost | currency }}</p>
+    <p><strong>Total Sales:</strong> {{ product.totalSales }}</p>
+    <p><strong>Description:</strong> {{ product.description }}</p>
+  </div>
+} @else {
+  <div class="p-6 text-gray-500 italic">No product selected.</div>
+}
