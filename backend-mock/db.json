@@ -71,27 +71,11 @@
       "description": "Dimmable LED desk lamp with touch controls"
     },
     {
-      "id": "a23e",
-      "name": "KOMPLETE AUDIO 1",
-      "unitCost": 99,
-      "totalSales": 1000,
-      "description": "Audio interface for beginners",
-      "image": ""
-    },
-    {
-      "id": "994a",
-      "name": "KOMPLETE AUDIO 2",
-      "unitCost": 139,
-      "totalSales": 1000,
-      "description": "Audio interface for beginners",
-      "image": ""
-    },
-    {
-      "id": "4e03",
-      "name": "KOMPLETE AUDIO 3",
-      "unitCost": 150,
-      "totalSales": 1000,
-      "description": "Audio interface for beginners",
+      "id": 11,
+      "name": "Nvidia RTX 5080",
+      "unitCost": 2500,
+      "totalSales": 500,
+      "description": "Dedicated GPU for gaming and AI",
       "image": ""
     }
   ]

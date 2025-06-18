@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductListComponent } from './products/pages/product-list.component';
-import { ProductDetailComponent } from './products/pages/product-detail.component';
+import { HeaderComponent } from './layout/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent],
   // providers: [provideHttpClient()], // Removed, should be provided in the application bootstrap
   templateUrl: './app.html',
   styleUrl: './app.css'

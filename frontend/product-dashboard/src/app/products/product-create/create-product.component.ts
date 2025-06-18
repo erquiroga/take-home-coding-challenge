@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../shared/product.service';
 import { RouterModule, Router } from '@angular/router';
 
 @Component({
