@@ -1,9 +1,11 @@
 {
   "name": "backend-mock",
+  "type": "module",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "json-server --watch db.json --port 3000",
+    "start": "node src/server.js",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +13,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "json-server": "^1.0.0-beta.3"
+    "express": "^5.1.0",
+    "lowdb": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
   }
 }
