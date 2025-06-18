@@ -77,6 +77,14 @@
       "totalSales": 500,
       "description": "Dedicated GPU for gaming and AI",
       "image": ""
+    },
+    {
+      "id": 12,
+      "name": "New product",
+      "unitCost": 1,
+      "totalSales": 1,
+      "description": "New product",
+      "image": ""
     }
   ]
 }
