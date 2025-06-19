@@ -25,7 +25,8 @@ productsRouter.post('/', async (req, res) => {
 })
 
 productsRouter.patch('/:id', async (req, res) => {
-    const index = db.data.products.findIndex(p => p.id === req.params.id)
+    const id = Number(req.params.id);
+    const index = db.data.products.findIndex(p => p.id === id);
     if (index === -1) return res.status(404).send()
 
     db.data.products[index] = { ...db.data.products[index], ...req.body }
@@ -34,7 +35,8 @@ productsRouter.patch('/:id', async (req, res) => {
 })
 
 productsRouter.delete('/:id', async (req, res) => {
-    const index = db.data.products.findIndex(p => p.id === req.params.id)
+    const id = Number(req.params.id);
+    const index = db.data.products.findIndex(p => p.id === id);
     if (index === -1) return res.status(404).send()
 
     const deleted = db.data.products.splice(index, 1)
