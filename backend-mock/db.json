@@ -5,7 +5,8 @@
       "name": "X100 Wireless Headphones",
       "unitCost": 59.99,
       "totalSales": 1200,
-      "description": "Wireless headphones with noise cancellation"
+      "description": "Wireless headphones with noise cancellation",
+      "imageUrl": "https://i.blogs.es/4f357d/nuevos-wh-1000xm6-color-negro/500_333.jpeg"
     },
     {
       "id": 2,
@@ -40,7 +41,8 @@
       "name": "Pro Ergonomic Chair",
       "unitCost": 299.99,
       "totalSales": 190,
-      "description": "Chair with adjustable lumbar support and 3D armrests"
+      "description": "Chair with adjustable lumbar support and 3D armrests",
+      "imageUrl": "https://sg.hinomi.co/cdn/shop/files/h1-pro-v2_jpg.jpg?v=1729247238"
     },
     {
       "id": 7,
@@ -76,7 +78,7 @@
       "unitCost": 2500,
       "totalSales": 500,
       "description": "Dedicated GPU for gaming and AI",
-      "image": ""
+      "image": "https://http2.mlstatic.com/D_920912-MLA83595506057_042025-C.jpg"
     },
     {
       "id": 12,
@@ -84,7 +86,23 @@
       "unitCost": 1,
       "totalSales": 1,
       "description": "New product",
-      "image": ""
+      "imageUrl": ""
+    },
+    {
+      "id": 13,
+      "name": "test",
+      "unitCost": 1,
+      "totalSales": 1,
+      "description": "test512",
+      "imageUrl": ""
+    },
+    {
+      "id": 14,
+      "name": "New product 2",
+      "unitCost": 1,
+      "totalSales": 1,
+      "description": "Test123",
+      "image": "https://m.media-amazon.com/images/I/71SscvTzh+L._AC_SL1500_.jpg"
     }
   ]
 }

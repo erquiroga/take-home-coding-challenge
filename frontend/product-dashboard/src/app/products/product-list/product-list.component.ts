@@ -1,14 +1,15 @@
-import { Component, effect, signal, computed, Output, EventEmitter } from '@angular/core';
+import { Component, signal, computed, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../shared/product.service';
 import { Product } from '../shared/product.model';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PaginationComponent } from '../../pagination/pagination.component';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, PaginationComponent],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
@@ -23,6 +24,15 @@ export class ProductListComponent {
   readonly unitCostValue = signal<number | null>(null);
   readonly totalSalesOperator = signal<'gt' | 'lt'>('gt');
   readonly totalSalesValue = signal<number | null>(null);
+
+
+
+
+  readonly currentPage = signal(1);
+  readonly pageSize = 5;
+
+  readonly startIndex = computed(() => (this.currentPage() - 1) * this.pageSize);
+readonly endIndex = computed(() => this.startIndex() + this.pageSize);
 
   readonly filteredProducts = computed(() => {
     let filtered = this.products().filter(p =>
@@ -48,7 +58,17 @@ export class ProductListComponent {
     return this.sortProducts(filtered);
   });
 
+  readonly paginatedProducts = computed(() => {
+    const start = (this.currentPage() - 1) * this.pageSize;
+    return this.filteredProducts().slice(start, start + this.pageSize);
+  });
+
+  get totalPages(): number {
+    return Math.ceil(this.filteredProducts().length / this.pageSize);
+  }
+
   @Output() productSelected = new EventEmitter<number>();
+
   constructor(private productService: ProductService) {
     this.loadProducts();
   }
@@ -57,6 +77,10 @@ export class ProductListComponent {
     this.productService.getAll().subscribe({
       next: (data) => this.products.set(data),
     });
+  }
+
+  applyFilters(): void {
+    this.currentPage.set(1);
   }
 
   toggleFilters(): void {
@@ -68,6 +92,7 @@ export class ProductListComponent {
     this.unitCostValue.set(null);
     this.totalSalesOperator.set('gt');
     this.totalSalesValue.set(null);
+    this.applyFilters();
   }
 
   setSort(column: keyof Product): void {
@@ -107,5 +132,9 @@ export class ProductListComponent {
 
   logProduct(product: Product): void {
     this.productSelected.emit(product.id);
+  }
+
+  goToPage(page: number): void {
+    this.currentPage.set(page);
   }
 }

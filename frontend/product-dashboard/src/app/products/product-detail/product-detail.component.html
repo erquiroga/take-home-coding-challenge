@@ -1,6 +1,11 @@
 @if (product) {
-  <div class="p-6 bg-white border border-gray-300 shadow-sm overflow-hidden shadow rounded">
+  <div class="p-6 bg-white border border-gray-300 shadow-sm overflow-hidden shadow rounded max-w-md">
+        <img [src]="product.imageUrl || 'assets/default-product.jpg'"
+     [alt]="product.name"
+     class="w-full h-48 object-contain mb-4 rounded bg-gray-100" />
+
     <h2 class="text-2xl font-bold mb-4">{{ product.name }}</h2>
+    
     <p><strong>ID:</strong> {{ product.id }}</p>
     <p><strong>Unit Cost:</strong> {{ product.unitCost | currency }}</p>
     <p><strong>Total Sales:</strong> {{ product.totalSales }}</p>
@@ -8,4 +13,4 @@
   </div>
 } @else {
   <div class="p-6 text-gray-500 italic">No product selected.</div>
-}
+} 

@@ -3,23 +3,16 @@
   <input
     type="text"
     [ngModel]="searchTerm()"
-    (ngModelChange)="searchTerm.set($event)"
+    (ngModelChange)="searchTerm.set($event); applyFilters()"
     placeholder="Search by name..."
-    class="border border-gray-300 px-4 py-2 rounded w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-  />
+    class="border border-gray-300 px-4 py-2 rounded w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
-  <button
-    (click)="toggleFilters()"
-    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-sm"
-  >
+  <button (click)="toggleFilters()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-sm">
     Filters
   </button>
 
   @if (showFilters()) {
-    <button
-      (click)="clearFilters()"
-      class="bg-gray-200 text-gray-800 px-3 py-2 rounded hover:bg-gray-300 text-sm"
-    >
+    <button (click)="clearFilters()" class="bg-gray-200 text-gray-800 px-3 py-2 rounded hover:bg-gray-300 text-sm">
       Clear
     </button>
   }
@@ -31,12 +24,12 @@
     <div>
       <label class="block font-medium">Unit Cost</label>
       <div class="flex items-center gap-2">
-        <select [ngModel]="unitCostOperator()" (ngModelChange)="unitCostOperator.set($event)"
+        <select [ngModel]="unitCostOperator()" (ngModelChange)="unitCostOperator.set($event); applyFilters()"
                 class="border px-2 py-1 rounded text-sm">
           <option value="gt">&gt;</option>
           <option value="lt">&lt;</option>
         </select>
-        <input type="number" [ngModel]="unitCostValue()" (ngModelChange)="unitCostValue.set($event)"
+        <input type="number" [ngModel]="unitCostValue()" (ngModelChange)="unitCostValue.set($event); applyFilters()"
                class="border px-2 py-1 rounded text-sm w-full" placeholder="Enter value" />
       </div>
     </div>
@@ -44,12 +37,12 @@
     <div>
       <label class="block font-medium">Total Sales</label>
       <div class="flex items-center gap-2">
-        <select [ngModel]="totalSalesOperator()" (ngModelChange)="totalSalesOperator.set($event)"
+        <select [ngModel]="totalSalesOperator()" (ngModelChange)="totalSalesOperator.set($event); applyFilters()"
                 class="border px-2 py-1 rounded text-sm">
           <option value="gt">&gt;</option>
           <option value="lt">&lt;</option>
         </select>
-        <input type="number" [ngModel]="totalSalesValue()" (ngModelChange)="totalSalesValue.set($event)"
+        <input type="number" [ngModel]="totalSalesValue()" (ngModelChange)="totalSalesValue.set($event); applyFilters()"
                class="border px-2 py-1 rounded text-sm w-full" placeholder="Enter value" />
       </div>
     </div>
@@ -57,30 +50,38 @@
 }
 
 <!-- Table -->
-<div class="rounded border border-gray-300 shadow-sm overflow-hidden">
-  <table class="min-w-full table-auto text-sm text-left text-gray-700 bg-white">
-    <thead class="bg-gray-100 text-gray-800 uppercase text-xs">
-      <tr>
-        <th class="px-4 py-2 border cursor-pointer" (click)="setSort('id')">ID</th>
-        <th class="px-4 py-2 border cursor-pointer" (click)="setSort('name')">Name</th>
-        <th class="px-4 py-2 border cursor-pointer" (click)="setSort('unitCost')">Unit Cost</th>
-        <th class="px-4 py-2 border cursor-pointer" (click)="setSort('totalSales')">Total Sales</th>
-        <th class="px-4 py-2 border">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (product of filteredProducts(); track product.id) {
-        <tr
-          class="hover:bg-gray-50 transition-colors cursor-pointer"
-          (click)="logProduct(product)"
-        >
-          <td class="px-4 py-3 border-b border-gray-200">{{ product.id }}</td>
-          <td class="px-4 py-3 border-b border-gray-200">{{ product.name }}</td>
-          <td class="px-4 py-3 border-b border-gray-200">{{ product.unitCost | currency }}</td>
-          <td class="px-4 py-3 border-b border-gray-200">{{ product.totalSales }}</td>
-          <td class="px-4 py-3 border-b border-gray-200">{{ product.description }}</td>
+<div class="flex flex-col justify-between min-h-[500px] border border-gray-300 rounded shadow-sm bg-white">
+  <div class="overflow-x-auto">
+    <table class="min-w-full table-auto text-sm text-left text-gray-700">
+      <thead class="bg-gray-100 text-gray-800 uppercase text-xs">
+        <tr>
+          <th class="px-4 py-2 border cursor-pointer" (click)="setSort('id')">ID</th>
+          <th class="px-4 py-2 border cursor-pointer" (click)="setSort('name')">Name</th>
+          <th class="px-4 py-2 border cursor-pointer" (click)="setSort('unitCost')">Unit Cost</th>
+          <th class="px-4 py-2 border cursor-pointer" (click)="setSort('totalSales')">Total Sales</th>
+          <th class="px-4 py-2 border">Description</th>
         </tr>
-      }
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @for (product of filteredProducts().slice(startIndex(), endIndex()); track product.id) {
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" (click)="logProduct(product)">
+            <td class="px-4 py-3 border-b border-gray-200">{{ product.id }}</td>
+            <td class="px-4 py-3 border-b border-gray-200">{{ product.name }}</td>
+            <td class="px-4 py-3 border-b border-gray-200">{{ product.unitCost | currency }}</td>
+            <td class="px-4 py-3 border-b border-gray-200">{{ product.totalSales }}</td>
+            <td class="px-4 py-3 border-b border-gray-200">{{ product.description }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="sticky bottom-0 bg-white py-4 border-t border-gray-200 z-10 flex justify-center">
+    <app-pagination
+      [currentPage]="currentPage()"
+      [totalPages]="totalPages"
+      (pageChanged)="goToPage($event)">
+    </app-pagination>
+  </div>
 </div>
