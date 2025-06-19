@@ -76,3 +76,29 @@ npm start
 - Data Types: Ensured consistent ID types (converted to number) for sorting and filtering operations on the frontend.
 
 - CORS: Enabled manually to support requests from localhost:4200.
+
+## Potential Improvements
+
+Here are some ideas to improve and extend the application in terms of functionality and architecture:
+
+### Reusable Components
+- Generic filters: Create a base abstract filter component (AbstractFilterComponent) that can be extended for specific filters (e.g., for products, sales, users).
+- Reusable search bar: Extract the search input logic into a configurable standalone component using @Input.
+- Table component: Modularize the product table to render dynamic columns and enable reuse across different entities.
+
+### Data Visualization
+- Comparison chart: Add a chart (e.g., using Chart.js or ngx-charts) to compare totalSales, unitCost, or both across products.
+- Quick stats: Display KPIs such as total number of products, average unit cost, top 5 best-selling products, etc.
+
+### Advanced Features
+- Global search: Expand search capabilities to include description or even id.
+- Backend-driven pagination: Currently, pagination is fully client-side. For better performance with large datasets, it should be handled server-side (?page=1&pageSize=10).
+
+### Backend & Architecture
+- Upgrade database: Replace LowDB with a real database (e.g., PostgreSQL, MongoDB, or SQLite) for improved scalability and reliability.
+- Backend validation: Add schema validation for incoming data in POST and PATCH routes.
+- Authentication: Add a basic login system to restrict access to product creation or editing.
+
+### Testing & Code Quality
+- Broader test coverage: Include integration tests and more thorough component/unit testing.
+- Linting & formatting tools: Integrate ESLint + Prettier to ensure code consistency across the project.
