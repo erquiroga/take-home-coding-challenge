@@ -36,4 +36,8 @@ export class CreateProductComponent {
       this.productForm.markAllAsTouched();
     }
   }
+
+  cancel(): void {
+  this.router.navigate(['/']);
+}
 }
