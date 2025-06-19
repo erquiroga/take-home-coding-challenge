@@ -87,7 +87,6 @@ Here are some ideas to improve and extend the application in terms of functional
 - Table component: Modularize the product table to render dynamic columns and enable reuse across different entities.
 
 ### Data Visualization
-- Comparison chart: Add a chart (e.g., using Chart.js or ngx-charts) to compare totalSales, unitCost, or both across products.
 - Quick stats: Display KPIs such as total number of products, average unit cost, top 5 best-selling products, etc.
 
 ### Advanced Features
