@@ -29,7 +29,7 @@ export class CreateProductComponent implements OnInit {
       unitCost: [null, [Validators.required, Validators.min(0.01)]],
       totalSales: [null, [Validators.required, Validators.min(0)]],
       description: ['', [Validators.required, Validators.minLength(5)]],
-      image: ['']
+      imageUrl: ['']
     });
   }
 
