@@ -32,7 +32,7 @@ export class ProductListComponent {
   readonly pageSize = 5;
 
   readonly startIndex = computed(() => (this.currentPage() - 1) * this.pageSize);
-readonly endIndex = computed(() => this.startIndex() + this.pageSize);
+  readonly endIndex = computed(() => this.startIndex() + this.pageSize);
 
   readonly filteredProducts = computed(() => {
     let filtered = this.products().filter(p =>
@@ -68,6 +68,7 @@ readonly endIndex = computed(() => this.startIndex() + this.pageSize);
   }
 
   @Output() productSelected = new EventEmitter<number>();
+  @Output() productsChanged = new EventEmitter<Product[]>();
 
   constructor(private productService: ProductService) {
     this.loadProducts();
@@ -75,12 +76,16 @@ readonly endIndex = computed(() => this.startIndex() + this.pageSize);
 
   private loadProducts(): void {
     this.productService.getAll().subscribe({
-      next: (data) => this.products.set(data),
+      next: (data) => {
+        this.products.set(data),
+          this.productsChanged.emit(this.paginatedProducts());
+      }
     });
   }
 
   applyFilters(): void {
     this.currentPage.set(1);
+    this.productsChanged.emit(this.paginatedProducts());
   }
 
   toggleFilters(): void {
@@ -102,6 +107,7 @@ readonly endIndex = computed(() => this.startIndex() + this.pageSize);
       this.sortColumn.set(column);
       this.sortDirection.set('asc');
     }
+    this.productsChanged.emit(this.paginatedProducts());
   }
 
   sortProducts(products: Product[]): Product[] {
@@ -136,5 +142,6 @@ readonly endIndex = computed(() => this.startIndex() + this.pageSize);
 
   goToPage(page: number): void {
     this.currentPage.set(page);
+    this.productsChanged.emit(this.paginatedProducts());
   }
 }
